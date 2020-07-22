@@ -1,0 +1,40 @@
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Release\ChargeSystem.exe.config
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Release\ChargeSystem.exe
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Release\ChargeSystem.pdb
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.Form1.resources
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.Properties.Resources.resources
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.csproj.GenerateResource.cache
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.csproj.CoreCompileInputs.cache
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.exe
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.pdb
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.csprojAssemblyReference.cache
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Release\ChargeSystem.exe.config
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Release\ChargeSystem.exe
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Release\ChargeSystem.pdb
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.csprojAssemblyReference.cache
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.Form1.resources
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.Properties.Resources.resources
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.csproj.GenerateResource.cache
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.csproj.CoreCompileInputs.cache
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.exe
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Release\ChargeSystem.pdb
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\bin\Release\ChargeSystem.exe.config
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\bin\Release\ChargeSystem.exe
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\bin\Release\ChargeSystem.pdb
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Release\ChargeSystem.csprojAssemblyReference.cache
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Release\ChargeSystem.Form1.resources
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Release\ChargeSystem.Properties.Resources.resources
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Release\ChargeSystem.csproj.GenerateResource.cache
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Release\ChargeSystem.csproj.CoreCompileInputs.cache
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Release\ChargeSystem.exe
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Release\ChargeSystem.pdb
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\bin\Release\ChargeSystem.exe.config
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\bin\Release\ChargeSystem.exe
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\bin\Release\ChargeSystem.pdb
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Release\ChargeSystem.csprojAssemblyReference.cache
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Release\ChargeSystem.Form1.resources
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Release\ChargeSystem.Properties.Resources.resources
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Release\ChargeSystem.csproj.GenerateResource.cache
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Release\ChargeSystem.csproj.CoreCompileInputs.cache
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Release\ChargeSystem.exe
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Release\ChargeSystem.pdb

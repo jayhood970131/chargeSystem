@@ -1,0 +1,121 @@
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem\ChargeSystem\bin\Debug\ChargeSystem.exe.config
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem\ChargeSystem\bin\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem\ChargeSystem\bin\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem\ChargeSystem\obj\Debug\ChargeSystem.csprojResolveAssemblyReference.cache
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem\ChargeSystem\obj\Debug\ChargeSystem.Form1.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem\ChargeSystem\obj\Debug\ChargeSystem.Properties.Resources.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem\ChargeSystem\obj\Debug\ChargeSystem.csproj.GenerateResource.Cache
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem\ChargeSystem\obj\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem\ChargeSystem\obj\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.1\ChargeSystem\bin\Debug\ChargeSystem.exe.config
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.1\ChargeSystem\obj\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.1\ChargeSystem\obj\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.1\ChargeSystem\bin\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.1\ChargeSystem\bin\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.1\ChargeSystem\obj\Debug\ChargeSystem.csprojResolveAssemblyReference.cache
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.1\ChargeSystem\obj\Debug\ChargeSystem.Form1.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.1\ChargeSystem\obj\Debug\ChargeSystem.Properties.Resources.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.1\ChargeSystem\obj\Debug\ChargeSystem.csproj.GenerateResource.Cache
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.2\ChargeSystem\bin\Debug\ChargeSystem.exe.config
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.2\ChargeSystem\obj\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.2\ChargeSystem\obj\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.2\ChargeSystem\bin\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.2\ChargeSystem\bin\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.2\ChargeSystem\obj\Debug\ChargeSystem.csprojResolveAssemblyReference.cache
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.2\ChargeSystem\obj\Debug\ChargeSystem.Form1.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.2\ChargeSystem\obj\Debug\ChargeSystem.Properties.Resources.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.2\ChargeSystem\obj\Debug\ChargeSystem.csproj.GenerateResource.Cache
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.3\ChargeSystem\bin\Debug\ChargeSystem.exe.config
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.3\ChargeSystem\obj\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.3\ChargeSystem\obj\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.3\ChargeSystem\bin\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.3\ChargeSystem\bin\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.3\ChargeSystem\obj\Debug\ChargeSystem.csprojResolveAssemblyReference.cache
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.3\ChargeSystem\obj\Debug\ChargeSystem.Form1.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.3\ChargeSystem\obj\Debug\ChargeSystem.Properties.Resources.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.3\ChargeSystem\obj\Debug\ChargeSystem.csproj.GenerateResource.Cache
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.4\ChargeSystem\bin\Debug\ChargeSystem.exe.config
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.4\ChargeSystem\obj\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.4\ChargeSystem\obj\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.4\ChargeSystem\bin\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.4\ChargeSystem\bin\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.4\ChargeSystem\obj\Debug\ChargeSystem.csprojResolveAssemblyReference.cache
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.4\ChargeSystem\obj\Debug\ChargeSystem.Form1.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.4\ChargeSystem\obj\Debug\ChargeSystem.Properties.Resources.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.4\ChargeSystem\obj\Debug\ChargeSystem.csproj.GenerateResource.Cache
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.5\ChargeSystem\bin\Debug\ChargeSystem.exe.config
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.5\ChargeSystem\obj\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.5\ChargeSystem\obj\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.5\ChargeSystem\bin\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.5\ChargeSystem\bin\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.5\ChargeSystem\obj\Debug\ChargeSystem.csprojResolveAssemblyReference.cache
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.5\ChargeSystem\obj\Debug\ChargeSystem.Form1.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.5\ChargeSystem\obj\Debug\ChargeSystem.Properties.Resources.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.5\ChargeSystem\obj\Debug\ChargeSystem.csproj.GenerateResource.Cache
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.6\ChargeSystem\bin\Debug\ChargeSystem.exe.config
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.6\ChargeSystem\obj\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.6\ChargeSystem\obj\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.6\ChargeSystem\bin\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.6\ChargeSystem\bin\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.6\ChargeSystem\obj\Debug\ChargeSystem.csprojResolveAssemblyReference.cache
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.6\ChargeSystem\obj\Debug\ChargeSystem.Form1.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.6\ChargeSystem\obj\Debug\ChargeSystem.Properties.Resources.resources
+H:\Workspace_SzuIoT\ChargeSystem\ChargeSystem - V1.6\ChargeSystem\obj\Debug\ChargeSystem.csproj.GenerateResource.Cache
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.1 - ExternAndInside\ChargeSystem\bin\Debug\ChargeSystem.exe.config
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.1 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.1 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.1 - ExternAndInside\ChargeSystem\bin\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.1 - ExternAndInside\ChargeSystem\bin\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.1 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.csprojResolveAssemblyReference.cache
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.1 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.Form1.resources
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.1 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.Properties.Resources.resources
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.1 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.csproj.GenerateResource.Cache
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Debug\ChargeSystem.exe.config
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Debug\ChargeSystem.exe
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Debug\ChargeSystem.pdb
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.csprojResolveAssemblyReference.cache
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.Form1.resources
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.Properties.Resources.resources
+H:\Workspace_SzuIoT\ChargeSystem\内部\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.csproj.GenerateResource.Cache
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Debug\ChargeSystem.exe.config
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Debug\ChargeSystem.exe
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Debug\ChargeSystem.pdb
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.csprojAssemblyReference.cache
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.Form1.resources
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.Properties.Resources.resources
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.csproj.GenerateResource.cache
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.csproj.CoreCompileInputs.cache
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.exe
+D:\Download\WeChat Files\zjh970131\FileStorage\File\2020-06\demo\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.pdb
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Debug\ChargeSystem.exe.config
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Debug\ChargeSystem.exe
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\bin\Debug\ChargeSystem.pdb
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.csprojAssemblyReference.cache
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.Form1.resources
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.Properties.Resources.resources
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.csproj.GenerateResource.cache
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.csproj.CoreCompileInputs.cache
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.exe
+D:\Codes\cs\project\ChargeSystem - V2.2 - ExternAndInside\ChargeSystem\obj\Debug\ChargeSystem.pdb
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\bin\Debug\ChargeSystem.exe.config
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\bin\Debug\ChargeSystem.exe
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\bin\Debug\ChargeSystem.pdb
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Debug\ChargeSystem.csprojAssemblyReference.cache
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Debug\ChargeSystem.Form1.resources
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Debug\ChargeSystem.Properties.Resources.resources
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Debug\ChargeSystem.csproj.GenerateResource.cache
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Debug\ChargeSystem.csproj.CoreCompileInputs.cache
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Debug\ChargeSystem.exe
+D:\Codes\cs\project\ChargeSystem\ChargeSystem\obj\Debug\ChargeSystem.pdb
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\bin\Debug\ChargeSystem.exe.config
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\bin\Debug\ChargeSystem.exe
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\bin\Debug\ChargeSystem.pdb
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Debug\ChargeSystem.csprojAssemblyReference.cache
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Debug\ChargeSystem.Form1.resources
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Debug\ChargeSystem.Properties.Resources.resources
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Debug\ChargeSystem.csproj.GenerateResource.cache
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Debug\ChargeSystem.csproj.CoreCompileInputs.cache
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Debug\ChargeSystem.exe
+D:\Codes\cs\project\ChargeSystem-MultiThread\ChargeSystem\obj\Debug\ChargeSystem.pdb
