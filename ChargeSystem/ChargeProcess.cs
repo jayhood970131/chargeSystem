@@ -20,6 +20,11 @@ namespace ChargeSystem
         public uint Card_ID = 0;
         public uint Card_VehicleNum = 0;
 
-
+        //RF
+        public ulong txFreq = 0;
+        public byte txPower = 0;
+        public byte rxSens = 0;
+        public ulong rxFreq = 0;
+        public byte rxBw = 0;
     }
 }

@@ -65,6 +65,7 @@ namespace ChargeSystem
         public Thread th;
 
         public List<Button> listLinkNeededBtn = null; //需要tcp连接上才能使用的按钮
+        public List<TextBox> listRfTbx = null;
 
         public ManualResetEventSlim manualResetSendBin;
 
@@ -78,7 +79,7 @@ namespace ChargeSystem
         private void Form1_Load(object sender, EventArgs e)
         {
 #if InsideVersion
-            this.Text = "ETCAN-版本V2.2";
+            this.Text = "ETCAN_I--V1.0";
             // this.gpBox_RF.Visible = true;
             this.btnGetVst.Visible = true;
 #else
@@ -110,6 +111,27 @@ namespace ChargeSystem
             }
             this.cobxPower.SelectedIndex = 0;
 
+            //发射功率
+            for (int i = 0, j = -9; i <= 16; i++)
+            {
+                this.cobxTxPower.Items.Add((i + j).ToString());
+            }
+            this.cobxTxPower.SelectedIndex = 0;
+
+            //接收灵敏度
+            for (byte i = 0; i <= 23; i++)
+            {
+                this.cobxRxSens.Items.Add(nwf580_sense[i].ToString());
+            }
+            this.cobxRxSens.SelectedIndex = 0;
+
+            //接收带宽
+            for (byte i = 0; i <= 7; i++)
+            {
+                this.cobxRxBw.Items.Add(bandwidth[i].ToString());
+            }
+            this.cobxRxBw.SelectedIndex = 0;
+
 
 
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -123,6 +145,18 @@ namespace ChargeSystem
             this.listLinkNeededBtn.Add(this.btnManualCharge);
             this.listLinkNeededBtn.Add(this.btnGetVst);
             this.listLinkNeededBtn.Add(this.btnChooseBin);
+            this.listLinkNeededBtn.Add(this.btnSetRf);
+
+            this.listRfTbx = new List<TextBox>();
+            this.listRfTbx.Add(this.tbxTxFreq);
+            this.listRfTbx.Add(this.tbxRxFreq);
+
+            for (int i = 0; i < this.listRfTbx.Count; i++)
+            {
+                this.listRfTbx[i].Text = "0";
+            }
+            this.tbxTxFreq.Text = "5830000";
+            this.tbxRxFreq.Text = "5795000";
 
 
             // 更新固件按钮只有在选择了固件文件后才能打开，初始化为false
@@ -160,6 +194,25 @@ namespace ChargeSystem
                 }
             }
         }
+
+        public bool isRfTbxValid()
+        {
+            bool isAllSet = true;
+            for (int i = 0; i < this.listRfTbx.Count; i++)
+            {
+                if (this.listRfTbx[i].Text == "")
+                {
+                    isAllSet = false;
+                    this.listRfTbx[i].BackColor = Color.Red;
+                }
+                else
+                {
+                    this.listRfTbx[i].BackColor = Color.White;
+                }
+            }
+            return isAllSet;
+        }
+
         public bool isTcpParaSet()
         {
             bool flag = true;
@@ -206,6 +259,20 @@ namespace ChargeSystem
             bits_in16 <<= 8;
             chargePara.OBU_ID = (uint)(bits_in32 | bits_in24 | bits_in16 | bits_in8);
             chargePara.chargePeriod = (byte)(int.Parse(this.tbxChargePeriod.Text));
+
+            for (int i = 0; i < this.listRfTbx.Count; i++)
+            {
+                if (this.listRfTbx[i].Text == "")
+                {
+                    this.listRfTbx[i].Text = "0";
+                }
+
+            }
+            chargePara.txFreq = ulong.Parse(this.tbxTxFreq.Text);
+            chargePara.txPower = (byte)(this.cobxTxPower.SelectedIndex);
+            chargePara.rxSens = (byte)(this.cobxRxSens.SelectedIndex);
+            chargePara.rxFreq = ulong.Parse(this.tbxRxFreq.Text);
+            chargePara.rxBw = (byte)(this.cobxRxBw.SelectedIndex);
         }
         /*
          * 点击 连接设备，按照填写的IP地址端口号发起TCP连接，在日志框打印是否连接成功
@@ -1349,6 +1416,33 @@ namespace ChargeSystem
             tcpFrame.sendTcpFrame(ref localSocket, ref this.tbxLog);
         }
 
+        private void btnSetRf_Click(object sender, EventArgs e)
+        {
+            byte[] data = new byte[12];
+
+            if (!isRfTbxValid())
+            {
+                MessageBox.Show("ERROR", "存在未填写的参数");
+                return;
+            }
+            chargeParaInit();
+            data[0] = (byte)CTRL_CODE.SET_RF;
+            for (int i = 3; i >= 0; i--)
+            {
+                data[4 - i] = (byte)(chargePara.txFreq >> i * 8);
+            }
+            data[5] = chargePara.txPower;
+            data[6] = chargePara.rxSens;
+            for (int i = 3; i >= 0; i--)
+            {
+                data[10 - i] = (byte)(chargePara.rxFreq >> i * 8);
+            }
+            data[11] = chargePara.rxBw;
+            TCP_Frame tcpFrame = new TCP_Frame();
+            tcpFrame.sealDataToFrame(ref data);
+            tcpFrame.sendTcpFrame(ref localSocket, ref this.tbxLog);
+        }
+
         private void btnChooseBin_Click(object sender, EventArgs e) {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Title = "请选择固件";
@@ -1454,6 +1548,61 @@ namespace ChargeSystem
                         this.tbxLog.Text += "\r\n发送固件: 发送固件完毕\r\n";
                     }));
                 }
+            }
+        }
+
+        private void tbxTxFreq_TextChanged(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text == "")
+                return;
+            if (ulong.Parse(((TextBox)sender).Text) >= 4294967296)
+            {
+                MessageBox.Show("输入的值超过了最大值4294967296", "ERROR");
+                ((TextBox)sender).Text = "";
+            }
+        }
+
+        private void tbxRxFreq_TextChanged(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text == "")
+                return;
+            if (ulong.Parse(((TextBox)sender).Text) >= 4294967296)
+            {
+                MessageBox.Show("输入的值超过了最大值4294967296", "ERROR");
+                ((TextBox)sender).Text = "";
+            }
+        }
+
+        private void tbxTxPower_TextChanged(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text == "")
+                return;
+            if (uint.Parse(((TextBox)sender).Text) >= 256)
+            {
+                MessageBox.Show("输入的值超过了最大值255", "ERROR");
+                ((TextBox)sender).Text = "";
+            }
+        }
+
+        private void tbxRxSens_TextChanged(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text == "")
+                return;
+            if (uint.Parse(((TextBox)sender).Text) >= 256)
+            {
+                MessageBox.Show("输入的值超过了最大值255", "ERROR");
+                ((TextBox)sender).Text = "";
+            }
+        }
+
+        private void tbxRxBW_TextChanged(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text == "")
+                return;
+            if (uint.Parse(((TextBox)sender).Text) >= 256)
+            {
+                MessageBox.Show("输入的值超过了最大值255", "ERROR");
+                ((TextBox)sender).Text = "";
             }
         }
     }

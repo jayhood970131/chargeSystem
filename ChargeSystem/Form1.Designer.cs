@@ -71,9 +71,25 @@
             this.tbxDisplayFilename = new System.Windows.Forms.RichTextBox();
             this.btnUpdataFile = new System.Windows.Forms.Button();
             this.btnChooseBin = new System.Windows.Forms.Button();
+            this.gpBox_RF = new System.Windows.Forms.GroupBox();
+            this.cobxRxBw = new System.Windows.Forms.ComboBox();
+            this.cobxRxSens = new System.Windows.Forms.ComboBox();
+            this.cobxTxPower = new System.Windows.Forms.ComboBox();
+            this.btnSetRf = new System.Windows.Forms.Button();
+            this.tbxRxFreq = new System.Windows.Forms.TextBox();
+            this.tbxTxFreq = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tbxRxBW = new System.Windows.Forms.TextBox();
+            this.tbxTxPower = new System.Windows.Forms.TextBox();
+            this.tbxRxSens = new System.Windows.Forms.TextBox();
             this.gpBox_IPCTRL.SuspendLayout();
             this.gpBox_Para1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gpBox_RF.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -296,7 +312,7 @@
             // 
             // tbxLog
             // 
-            this.tbxLog.Location = new System.Drawing.Point(12, 345);
+            this.tbxLog.Location = new System.Drawing.Point(29, 406);
             this.tbxLog.Multiline = true;
             this.tbxLog.Name = "tbxLog";
             this.tbxLog.ReadOnly = true;
@@ -456,9 +472,9 @@
             this.groupBox1.Controls.Add(this.tbxDisplayFilename);
             this.groupBox1.Controls.Add(this.btnUpdataFile);
             this.groupBox1.Controls.Add(this.btnChooseBin);
-            this.groupBox1.Location = new System.Drawing.Point(561, 27);
+            this.groupBox1.Location = new System.Drawing.Point(567, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(329, 176);
+            this.groupBox1.Size = new System.Drawing.Size(329, 142);
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "固件功能";
@@ -492,11 +508,173 @@
             this.btnChooseBin.UseVisualStyleBackColor = true;
             this.btnChooseBin.Click += new System.EventHandler(this.btnChooseBin_Click);
             // 
+            // gpBox_RF
+            // 
+            this.gpBox_RF.Controls.Add(this.cobxRxBw);
+            this.gpBox_RF.Controls.Add(this.cobxRxSens);
+            this.gpBox_RF.Controls.Add(this.cobxTxPower);
+            this.gpBox_RF.Controls.Add(this.btnSetRf);
+            this.gpBox_RF.Controls.Add(this.tbxRxFreq);
+            this.gpBox_RF.Controls.Add(this.tbxTxFreq);
+            this.gpBox_RF.Controls.Add(this.label18);
+            this.gpBox_RF.Controls.Add(this.label17);
+            this.gpBox_RF.Controls.Add(this.label16);
+            this.gpBox_RF.Controls.Add(this.label15);
+            this.gpBox_RF.Controls.Add(this.label14);
+            this.gpBox_RF.Location = new System.Drawing.Point(567, 175);
+            this.gpBox_RF.Name = "gpBox_RF";
+            this.gpBox_RF.Size = new System.Drawing.Size(272, 225);
+            this.gpBox_RF.TabIndex = 43;
+            this.gpBox_RF.TabStop = false;
+            this.gpBox_RF.Text = "RF";
+            this.gpBox_RF.Visible = false;
+            // 
+            // cobxRxBw
+            // 
+            this.cobxRxBw.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cobxRxBw.FormattingEnabled = true;
+            this.cobxRxBw.Location = new System.Drawing.Point(124, 142);
+            this.cobxRxBw.Name = "cobxRxBw";
+            this.cobxRxBw.Size = new System.Drawing.Size(103, 20);
+            this.cobxRxBw.TabIndex = 45;
+            // 
+            // cobxRxSens
+            // 
+            this.cobxRxSens.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cobxRxSens.FormattingEnabled = true;
+            this.cobxRxSens.Location = new System.Drawing.Point(124, 111);
+            this.cobxRxSens.Name = "cobxRxSens";
+            this.cobxRxSens.Size = new System.Drawing.Size(103, 20);
+            this.cobxRxSens.TabIndex = 44;
+            // 
+            // cobxTxPower
+            // 
+            this.cobxTxPower.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cobxTxPower.FormattingEnabled = true;
+            this.cobxTxPower.Location = new System.Drawing.Point(124, 49);
+            this.cobxTxPower.Name = "cobxTxPower";
+            this.cobxTxPower.Size = new System.Drawing.Size(103, 20);
+            this.cobxTxPower.TabIndex = 43;
+            // 
+            // btnSetRf
+            // 
+            this.btnSetRf.Location = new System.Drawing.Point(15, 178);
+            this.btnSetRf.Name = "btnSetRf";
+            this.btnSetRf.Size = new System.Drawing.Size(106, 30);
+            this.btnSetRf.TabIndex = 42;
+            this.btnSetRf.Text = "设置RF";
+            this.btnSetRf.UseVisualStyleBackColor = true;
+            this.btnSetRf.Click += new System.EventHandler(this.btnSetRf_Click);
+            // 
+            // tbxRxFreq
+            // 
+            this.tbxRxFreq.Location = new System.Drawing.Point(124, 79);
+            this.tbxRxFreq.MaxLength = 10;
+            this.tbxRxFreq.Name = "tbxRxFreq";
+            this.tbxRxFreq.Size = new System.Drawing.Size(103, 21);
+            this.tbxRxFreq.TabIndex = 10;
+            this.tbxRxFreq.Text = "5795000";
+            this.tbxRxFreq.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxRxFreq.TextChanged += new System.EventHandler(this.tbxRxFreq_TextChanged);
+            // 
+            // tbxTxFreq
+            // 
+            this.tbxTxFreq.Location = new System.Drawing.Point(124, 16);
+            this.tbxTxFreq.MaxLength = 10;
+            this.tbxTxFreq.Name = "tbxTxFreq";
+            this.tbxTxFreq.Size = new System.Drawing.Size(103, 21);
+            this.tbxTxFreq.TabIndex = 8;
+            this.tbxTxFreq.Text = "5830000";
+            this.tbxTxFreq.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxTxFreq.TextChanged += new System.EventHandler(this.tbxTxFreq_TextChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(13, 147);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(83, 12);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "接收带宽(MHz)";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(13, 114);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(95, 12);
+            this.label17.TabIndex = 6;
+            this.label17.Text = "接收灵敏度(dBm)";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(13, 82);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(83, 12);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "接收频率(KHz)";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(13, 52);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(83, 12);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "发射功率(dBm)";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(13, 19);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(83, 12);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "发射频率(KHz)";
+            // 
+            // tbxRxBW
+            // 
+            this.tbxRxBW.Location = new System.Drawing.Point(845, 311);
+            this.tbxRxBW.MaxLength = 3;
+            this.tbxRxBW.Name = "tbxRxBW";
+            this.tbxRxBW.Size = new System.Drawing.Size(37, 21);
+            this.tbxRxBW.TabIndex = 46;
+            this.tbxRxBW.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxRxBW.Visible = false;
+            this.tbxRxBW.TextChanged += new System.EventHandler(this.tbxRxBW_TextChanged);
+            // 
+            // tbxTxPower
+            // 
+            this.tbxTxPower.Location = new System.Drawing.Point(845, 257);
+            this.tbxTxPower.MaxLength = 3;
+            this.tbxTxPower.Name = "tbxTxPower";
+            this.tbxTxPower.Size = new System.Drawing.Size(37, 21);
+            this.tbxTxPower.TabIndex = 44;
+            this.tbxTxPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxTxPower.Visible = false;
+            this.tbxTxPower.TextChanged += new System.EventHandler(this.tbxTxPower_TextChanged);
+            // 
+            // tbxRxSens
+            // 
+            this.tbxRxSens.Location = new System.Drawing.Point(845, 284);
+            this.tbxRxSens.MaxLength = 3;
+            this.tbxRxSens.Name = "tbxRxSens";
+            this.tbxRxSens.Size = new System.Drawing.Size(37, 21);
+            this.tbxRxSens.TabIndex = 45;
+            this.tbxRxSens.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxRxSens.Visible = false;
+            this.tbxRxSens.TextChanged += new System.EventHandler(this.tbxRxSens_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 579);
+            this.ClientSize = new System.Drawing.Size(974, 639);
+            this.Controls.Add(this.tbxRxBW);
+            this.Controls.Add(this.tbxTxPower);
+            this.Controls.Add(this.tbxRxSens);
+            this.Controls.Add(this.gpBox_RF);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGetVst);
             this.Controls.Add(this.gpBox_Para1);
@@ -523,6 +701,8 @@
             this.gpBox_Para1.ResumeLayout(false);
             this.gpBox_Para1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.gpBox_RF.ResumeLayout(false);
+            this.gpBox_RF.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -572,6 +752,21 @@
         private System.Windows.Forms.Button btnUpdataFile;
         private System.Windows.Forms.Button btnChooseBin;
         private System.Windows.Forms.RichTextBox tbxDisplayFilename;
+        private System.Windows.Forms.GroupBox gpBox_RF;
+        private System.Windows.Forms.ComboBox cobxRxBw;
+        private System.Windows.Forms.ComboBox cobxRxSens;
+        private System.Windows.Forms.ComboBox cobxTxPower;
+        private System.Windows.Forms.Button btnSetRf;
+        private System.Windows.Forms.TextBox tbxRxFreq;
+        private System.Windows.Forms.TextBox tbxTxFreq;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox tbxRxBW;
+        private System.Windows.Forms.TextBox tbxTxPower;
+        private System.Windows.Forms.TextBox tbxRxSens;
     }
 }
 
