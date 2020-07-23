@@ -527,7 +527,6 @@
             this.gpBox_RF.TabIndex = 43;
             this.gpBox_RF.TabStop = false;
             this.gpBox_RF.Text = "RF";
-            this.gpBox_RF.Visible = false;
             // 
             // cobxRxBw
             // 
