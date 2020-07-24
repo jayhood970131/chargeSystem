@@ -78,7 +78,7 @@ namespace ChargeSystem
         private void Form1_Load(object sender, EventArgs e)
         {
 #if InsideVersion
-            this.Text = "ETCAN-版本V2.2";
+            this.Text = "ETCANT_P--V1.0";
             // this.gpBox_RF.Visible = true;
             this.btnGetVst.Visible = true;
 #else
