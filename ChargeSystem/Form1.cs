@@ -1544,8 +1544,10 @@ namespace ChargeSystem
                     this.BeginInvoke((EventHandler)(delegate
                     {
                         tcpNeededBtnSet(true);
-                        this.btnUpdataFile.Enabled = true;
+                        this.btnUpdataFile.Enabled = false;
                         this.tbxLog.Text += "\r\n发送固件: 发送固件完毕\r\n";
+                        this.tbxLog.Text += "\r\n正在执行更新，请勿断电，等待控制板LED颜色停止循环即完成更新\r\n";
+                        this.btnConnect.PerformClick();
                     }));
                 }
             }
