@@ -97,7 +97,7 @@ namespace ChargeSystem
 
             this.tbxPort.Text = "5000";
 
-            this.tbxBill.Text = "00001";
+            this.tbxBill.Text = "00000";
 
             this.tbxOBU_ID.Text = "00 00 00 00";
             this.tbxChargePeriod.Text = "10";
@@ -108,7 +108,7 @@ namespace ChargeSystem
             {
                 this.cobxPower.Items.Add((i + 1).ToString());
             }
-            this.cobxPower.SelectedIndex = 0;
+            this.cobxPower.SelectedIndex = 16;
 
 
 
