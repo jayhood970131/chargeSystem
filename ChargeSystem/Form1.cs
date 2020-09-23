@@ -79,7 +79,7 @@ namespace ChargeSystem
         private void Form1_Load(object sender, EventArgs e)
         {
 #if InsideVersion
-            this.Text = "ETCANT_P V1.0";
+            this.Text = "ETCANT_P V1.0.5";
             // this.gpBox_RF.Visible = true;
             this.btnGetVst.Visible = true;
 #else

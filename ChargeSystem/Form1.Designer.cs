@@ -507,7 +507,7 @@
             // 
             // tbxB5Display
             // 
-            this.tbxB5Display.Location = new System.Drawing.Point(607, 218);
+            this.tbxB5Display.Location = new System.Drawing.Point(611, 218);
             this.tbxB5Display.Name = "tbxB5Display";
             this.tbxB5Display.ReadOnly = true;
             this.tbxB5Display.Size = new System.Drawing.Size(206, 21);
@@ -517,7 +517,7 @@
             // 
             this.lbB5Success.AutoSize = true;
             this.lbB5Success.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbB5Success.Location = new System.Drawing.Point(593, 264);
+            this.lbB5Success.Location = new System.Drawing.Point(614, 264);
             this.lbB5Success.Name = "lbB5Success";
             this.lbB5Success.Size = new System.Drawing.Size(52, 56);
             this.lbB5Success.TabIndex = 45;
