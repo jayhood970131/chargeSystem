@@ -71,6 +71,9 @@
             this.tbxDisplayFilename = new System.Windows.Forms.RichTextBox();
             this.btnUpdataFile = new System.Windows.Forms.Button();
             this.btnChooseBin = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tbxB5Display = new System.Windows.Forms.TextBox();
+            this.lbB5Success = new System.Windows.Forms.Label();
             this.gpBox_IPCTRL.SuspendLayout();
             this.gpBox_Para1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -492,11 +495,42 @@
             this.btnChooseBin.UseVisualStyleBackColor = true;
             this.btnChooseBin.Click += new System.EventHandler(this.btnChooseBin_Click);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.Location = new System.Drawing.Point(565, 221);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(40, 16);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "B5帧";
+            // 
+            // tbxB5Display
+            // 
+            this.tbxB5Display.Location = new System.Drawing.Point(607, 218);
+            this.tbxB5Display.Name = "tbxB5Display";
+            this.tbxB5Display.ReadOnly = true;
+            this.tbxB5Display.Size = new System.Drawing.Size(206, 21);
+            this.tbxB5Display.TabIndex = 44;
+            // 
+            // lbB5Success
+            // 
+            this.lbB5Success.AutoSize = true;
+            this.lbB5Success.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbB5Success.Location = new System.Drawing.Point(593, 264);
+            this.lbB5Success.Name = "lbB5Success";
+            this.lbB5Success.Size = new System.Drawing.Size(52, 56);
+            this.lbB5Success.TabIndex = 45;
+            this.lbB5Success.Text = " ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 579);
+            this.Controls.Add(this.lbB5Success);
+            this.Controls.Add(this.tbxB5Display);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGetVst);
             this.Controls.Add(this.gpBox_Para1);
@@ -572,6 +606,9 @@
         private System.Windows.Forms.Button btnUpdataFile;
         private System.Windows.Forms.Button btnChooseBin;
         private System.Windows.Forms.RichTextBox tbxDisplayFilename;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox tbxB5Display;
+        private System.Windows.Forms.Label lbB5Success;
     }
 }
 

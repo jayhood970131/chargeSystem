@@ -73,6 +73,7 @@ namespace ChargeSystem
         public Form1()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -450,6 +451,8 @@ namespace ChargeSystem
                 {
                     case (byte)RECV_CTRL_CODE.TRANSCATION_INFO:
                         {
+                            displayB5(ref recvData);
+
                             byte[] replyData = new byte[5];
                             replyData[0] = (byte)CTRL_CODE.TRANSCATION_COMPLETED;
 
@@ -459,9 +462,11 @@ namespace ChargeSystem
                             replyData[3] = (byte)((chargePara.OBU_ID & 0x0000ff00) >> 8);
                             replyData[4] = (byte)((chargePara.OBU_ID & 0x000000ff));
 
+                            
                             TCP_Frame tcpFrame = new TCP_Frame();
                             tcpFrame.sealDataToFrame(ref replyData);
                             tcpFrame.sendTcpFrame(ref localSocket, ref this.tbxLog);
+                            
                         }
                         break;
                     case (byte)RECV_CTRL_CODE.CAR_INFO:
@@ -1457,6 +1462,40 @@ namespace ChargeSystem
                     }));
                 }
             }
+        }
+
+        private void displayB5(ref byte[] recvData)
+        {
+            byte[] temp = new byte[7];
+
+            for (int i = 4, j = 0; i < 11; ++i, ++j)
+            {
+                temp[j] = recvData[i];
+            }
+
+            string str = BitConverter.ToString(temp).Replace("-", " ");
+            this.BeginInvoke((EventHandler)(delegate       
+            {
+                this.tbxB5Display.Text = str;
+            }));
+            
+            if (recvData[10] == 0)
+            {
+                this.BeginInvoke((EventHandler)(delegate
+                {
+                    this.lbB5Success.Text = "成功";
+                    this.lbB5Success.ForeColor = Color.Green;
+                }));
+            }
+            else
+            {
+                this.BeginInvoke((EventHandler)(delegate
+                {
+                    this.lbB5Success.Text = "失败";
+                    this.lbB5Success.ForeColor = Color.Red;
+                }));
+            }
+
         }
     }
 }
