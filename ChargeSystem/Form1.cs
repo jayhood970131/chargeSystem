@@ -79,7 +79,7 @@ namespace ChargeSystem
         private void Form1_Load(object sender, EventArgs e)
         {
 #if InsideVersion
-            this.Text = "ETCANT_P V1.0.5";
+            this.Text = "ETCANT_P V1.0.6";
             // this.gpBox_RF.Visible = true;
             this.btnGetVst.Visible = true;
 #else
@@ -1014,6 +1014,10 @@ namespace ChargeSystem
                 this.btnChooseBin.Enabled = true;
             }
             this.RSUSwitch = !this.RSUSwitch;
+
+            // 清除B5帧的显示
+            this.tbxB5Display.Text = "";
+            this.lbB5Success.Text = "";
 
             TCP_Frame tcpFrame = new TCP_Frame();
             tcpFrame.sealDataToFrame(ref data);
