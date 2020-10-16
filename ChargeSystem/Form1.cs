@@ -46,6 +46,14 @@ namespace ChargeSystem
         CLOSE = 0x00,
         OPEN = 0x01
     };
+
+    public enum B5Frame
+    {
+        NOT = 0,
+        HAS,
+        Correct
+    }
+
     public partial class Form1 : Form
     {
         public static int[] nwf580_sense = { -80, -79, -78, -77, -76, -75, -74, -73, -72, -71, -70, -68, -67, -65, -62, -61, -58, -55, -53, -52, -51, -48, -45, -43 };
@@ -69,6 +77,11 @@ namespace ChargeSystem
         public ManualResetEventSlim manualResetSendBin;
 
         public bool isSendEnding = true;
+
+        // 统计obuid出现正确与否的字典
+        private Dictionary<string, B5Frame> obuIdDict;
+        private int b5FrameAttendNum;
+        private int b5FrameSuccess;
 
         public Form1()
         {
@@ -139,6 +152,10 @@ namespace ChargeSystem
             this.carInfo = new VehicleInfo();
 
             manualResetSendBin = new ManualResetEventSlim(false);
+
+            this.obuIdDict = new Dictionary<string, B5Frame>();
+            this.b5FrameAttendNum = 0;
+            this.b5FrameSuccess = 0;
 
         }
 
@@ -361,6 +378,37 @@ namespace ChargeSystem
             this.tbxOBU_CarNum.Text = str;
         }
 
+        private void addObuIdToDict(string obuid, RECV_CTRL_CODE mode, bool success)
+        {
+            if (mode == RECV_CTRL_CODE.CAR_INFO)
+            {
+                if (!obuIdDict.ContainsKey(obuid))
+                {
+                    obuIdDict.Add(obuid, B5Frame.NOT);
+                }
+            }
+            else
+            {
+                if (obuIdDict.ContainsKey(obuid))
+                {
+                    if (success)
+                    {
+                        obuIdDict[obuid] = B5Frame.Correct;
+                        ++b5FrameSuccess;
+                    }
+                    else
+                    {
+                        obuIdDict[obuid] = B5Frame.HAS;
+                    }
+                    ++b5FrameAttendNum;
+                }
+                else
+                {
+                    MessageBox.Show("无效的b5数据");
+                }
+
+            }
+        }
 
         public void ReceiveMsg()
         {
@@ -451,6 +499,20 @@ namespace ChargeSystem
                 {
                     case (byte)RECV_CTRL_CODE.TRANSCATION_INFO:
                         {
+                            // ------------统计b5
+                            byte[] obu_id = new byte[4];
+                            obu_id[0] = recvData[5];
+                            obu_id[1] = recvData[6];
+                            obu_id[2] = recvData[7];
+                            obu_id[3] = recvData[8];
+                            str1 = BitConverter.ToString(obu_id).Replace("-", " ");
+                            bool success = recvData[10] == 0;
+                            addObuIdToDict(str1, RECV_CTRL_CODE.TRANSCATION_INFO, success);
+                            this.tbxB4Num.Text = this.obuIdDict.Count.ToString();
+                            this.tbxB5Num.Text = this.b5FrameAttendNum.ToString();
+                            this.tbxB5Success.Text = this.b5FrameSuccess.ToString();
+                           // --------------------
+
                             displayB5(ref recvData);
 
                             byte[] replyData = new byte[5];
@@ -471,6 +533,8 @@ namespace ChargeSystem
                         break;
                     case (byte)RECV_CTRL_CODE.CAR_INFO:
                         {
+                            
+
                             /*
                             * 提取OBU_ID
                             */
@@ -483,6 +547,14 @@ namespace ChargeSystem
                             strbuilder.Clear();
                             strbuilder.Append("\r\n OBU ID:" + str1 + "\r\n");                           
                             this.BeginInvoke(new delegateTbxOBUID(setTbxOBUID), str1);
+
+                            // 统计b4----------------
+                            addObuIdToDict(str1, RECV_CTRL_CODE.CAR_INFO, false);
+                            this.tbxB4Num.Text = this.obuIdDict.Count.ToString();
+                            this.tbxB5Num.Text = this.b5FrameAttendNum.ToString();
+                            this.tbxB5Success.Text = this.b5FrameSuccess.ToString();
+                            // --------------------
+
                             /*
                              * 提取卡车牌
                              */

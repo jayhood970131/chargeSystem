@@ -74,9 +74,17 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tbxB5Display = new System.Windows.Forms.TextBox();
             this.lbB5Success = new System.Windows.Forms.Label();
+            this.gpBoxTongji = new System.Windows.Forms.GroupBox();
+            this.tbxB5Num = new System.Windows.Forms.TextBox();
+            this.lbB5 = new System.Windows.Forms.Label();
+            this.tbxB4Num = new System.Windows.Forms.TextBox();
+            this.lbB4 = new System.Windows.Forms.Label();
+            this.tbxB5Success = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.gpBox_IPCTRL.SuspendLayout();
             this.gpBox_Para1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gpBoxTongji.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -523,11 +531,81 @@
             this.lbB5Success.TabIndex = 45;
             this.lbB5Success.Text = " ";
             // 
+            // gpBoxTongji
+            // 
+            this.gpBoxTongji.Controls.Add(this.tbxB5Success);
+            this.gpBoxTongji.Controls.Add(this.label15);
+            this.gpBoxTongji.Controls.Add(this.tbxB5Num);
+            this.gpBoxTongji.Controls.Add(this.lbB5);
+            this.gpBoxTongji.Controls.Add(this.tbxB4Num);
+            this.gpBoxTongji.Controls.Add(this.lbB4);
+            this.gpBoxTongji.Location = new System.Drawing.Point(832, 218);
+            this.gpBoxTongji.Name = "gpBoxTongji";
+            this.gpBoxTongji.Size = new System.Drawing.Size(248, 134);
+            this.gpBoxTongji.TabIndex = 46;
+            this.gpBoxTongji.TabStop = false;
+            this.gpBoxTongji.Text = "统计B4B5";
+            // 
+            // tbxB5Num
+            // 
+            this.tbxB5Num.Location = new System.Drawing.Point(99, 65);
+            this.tbxB5Num.Name = "tbxB5Num";
+            this.tbxB5Num.ReadOnly = true;
+            this.tbxB5Num.Size = new System.Drawing.Size(115, 21);
+            this.tbxB5Num.TabIndex = 47;
+            this.tbxB5Num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lbB5
+            // 
+            this.lbB5.AutoSize = true;
+            this.lbB5.Location = new System.Drawing.Point(16, 68);
+            this.lbB5.Name = "lbB5";
+            this.lbB5.Size = new System.Drawing.Size(77, 12);
+            this.lbB5.TabIndex = 46;
+            this.lbB5.Text = "B5帧出现次数";
+            // 
+            // tbxB4Num
+            // 
+            this.tbxB4Num.Location = new System.Drawing.Point(99, 28);
+            this.tbxB4Num.Name = "tbxB4Num";
+            this.tbxB4Num.ReadOnly = true;
+            this.tbxB4Num.Size = new System.Drawing.Size(115, 21);
+            this.tbxB4Num.TabIndex = 45;
+            this.tbxB4Num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lbB4
+            // 
+            this.lbB4.AutoSize = true;
+            this.lbB4.Location = new System.Drawing.Point(16, 31);
+            this.lbB4.Name = "lbB4";
+            this.lbB4.Size = new System.Drawing.Size(77, 12);
+            this.lbB4.TabIndex = 0;
+            this.lbB4.Text = "B4帧出现次数";
+            // 
+            // tbxB5Success
+            // 
+            this.tbxB5Success.Location = new System.Drawing.Point(99, 97);
+            this.tbxB5Success.Name = "tbxB5Success";
+            this.tbxB5Success.ReadOnly = true;
+            this.tbxB5Success.Size = new System.Drawing.Size(115, 21);
+            this.tbxB5Success.TabIndex = 49;
+            this.tbxB5Success.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(16, 100);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(77, 12);
+            this.label15.TabIndex = 48;
+            this.label15.Text = "B5帧成功次数";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 579);
+            this.ClientSize = new System.Drawing.Size(1092, 604);
+            this.Controls.Add(this.gpBoxTongji);
             this.Controls.Add(this.lbB5Success);
             this.Controls.Add(this.tbxB5Display);
             this.Controls.Add(this.label14);
@@ -557,6 +635,8 @@
             this.gpBox_Para1.ResumeLayout(false);
             this.gpBox_Para1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.gpBoxTongji.ResumeLayout(false);
+            this.gpBoxTongji.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -609,6 +689,13 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox tbxB5Display;
         private System.Windows.Forms.Label lbB5Success;
+        private System.Windows.Forms.GroupBox gpBoxTongji;
+        private System.Windows.Forms.TextBox tbxB4Num;
+        private System.Windows.Forms.Label lbB4;
+        private System.Windows.Forms.TextBox tbxB5Num;
+        private System.Windows.Forms.Label lbB5;
+        private System.Windows.Forms.TextBox tbxB5Success;
+        private System.Windows.Forms.Label label15;
     }
 }
 
