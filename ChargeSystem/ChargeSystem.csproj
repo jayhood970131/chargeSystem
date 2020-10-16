@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="B4B5Statistics.cs" />
     <Compile Include="BCD_Code.cs" />
     <Compile Include="ChargeProcess.cs" />
     <Compile Include="CRC16.cs" />

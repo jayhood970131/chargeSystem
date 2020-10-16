@@ -71,16 +71,14 @@
             this.tbxDisplayFilename = new System.Windows.Forms.RichTextBox();
             this.btnUpdataFile = new System.Windows.Forms.Button();
             this.btnChooseBin = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tbxB5Display = new System.Windows.Forms.TextBox();
-            this.lbB5Success = new System.Windows.Forms.Label();
             this.gpBoxTongji = new System.Windows.Forms.GroupBox();
+            this.tbxSaveB4B5 = new System.Windows.Forms.Button();
+            this.tbxB5Success = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.tbxB5Num = new System.Windows.Forms.TextBox();
             this.lbB5 = new System.Windows.Forms.Label();
             this.tbxB4Num = new System.Windows.Forms.TextBox();
             this.lbB4 = new System.Windows.Forms.Label();
-            this.tbxB5Success = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.gpBox_IPCTRL.SuspendLayout();
             this.gpBox_Para1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -469,7 +467,7 @@
             this.groupBox1.Controls.Add(this.btnChooseBin);
             this.groupBox1.Location = new System.Drawing.Point(561, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(329, 176);
+            this.groupBox1.Size = new System.Drawing.Size(332, 176);
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "固件功能";
@@ -503,48 +501,49 @@
             this.btnChooseBin.UseVisualStyleBackColor = true;
             this.btnChooseBin.Click += new System.EventHandler(this.btnChooseBin_Click);
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.Location = new System.Drawing.Point(565, 221);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 16);
-            this.label14.TabIndex = 43;
-            this.label14.Text = "B5帧";
-            // 
-            // tbxB5Display
-            // 
-            this.tbxB5Display.Location = new System.Drawing.Point(611, 218);
-            this.tbxB5Display.Name = "tbxB5Display";
-            this.tbxB5Display.ReadOnly = true;
-            this.tbxB5Display.Size = new System.Drawing.Size(206, 21);
-            this.tbxB5Display.TabIndex = 44;
-            // 
-            // lbB5Success
-            // 
-            this.lbB5Success.AutoSize = true;
-            this.lbB5Success.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbB5Success.Location = new System.Drawing.Point(614, 264);
-            this.lbB5Success.Name = "lbB5Success";
-            this.lbB5Success.Size = new System.Drawing.Size(52, 56);
-            this.lbB5Success.TabIndex = 45;
-            this.lbB5Success.Text = " ";
-            // 
             // gpBoxTongji
             // 
+            this.gpBoxTongji.Controls.Add(this.tbxSaveB4B5);
             this.gpBoxTongji.Controls.Add(this.tbxB5Success);
             this.gpBoxTongji.Controls.Add(this.label15);
             this.gpBoxTongji.Controls.Add(this.tbxB5Num);
             this.gpBoxTongji.Controls.Add(this.lbB5);
             this.gpBoxTongji.Controls.Add(this.tbxB4Num);
             this.gpBoxTongji.Controls.Add(this.lbB4);
-            this.gpBoxTongji.Location = new System.Drawing.Point(832, 218);
+            this.gpBoxTongji.Location = new System.Drawing.Point(567, 209);
             this.gpBoxTongji.Name = "gpBoxTongji";
-            this.gpBoxTongji.Size = new System.Drawing.Size(248, 134);
+            this.gpBoxTongji.Size = new System.Drawing.Size(326, 134);
             this.gpBoxTongji.TabIndex = 46;
             this.gpBoxTongji.TabStop = false;
             this.gpBoxTongji.Text = "统计B4B5";
+            // 
+            // tbxSaveB4B5
+            // 
+            this.tbxSaveB4B5.Location = new System.Drawing.Point(230, 59);
+            this.tbxSaveB4B5.Name = "tbxSaveB4B5";
+            this.tbxSaveB4B5.Size = new System.Drawing.Size(90, 30);
+            this.tbxSaveB4B5.TabIndex = 50;
+            this.tbxSaveB4B5.Text = "保存统计信息";
+            this.tbxSaveB4B5.UseVisualStyleBackColor = true;
+            this.tbxSaveB4B5.Click += new System.EventHandler(this.tbxSaveB4B5_Click);
+            // 
+            // tbxB5Success
+            // 
+            this.tbxB5Success.Location = new System.Drawing.Point(99, 97);
+            this.tbxB5Success.Name = "tbxB5Success";
+            this.tbxB5Success.ReadOnly = true;
+            this.tbxB5Success.Size = new System.Drawing.Size(115, 21);
+            this.tbxB5Success.TabIndex = 49;
+            this.tbxB5Success.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(16, 100);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(77, 12);
+            this.label15.TabIndex = 48;
+            this.label15.Text = "B5帧成功次数";
             // 
             // tbxB5Num
             // 
@@ -582,33 +581,12 @@
             this.lbB4.TabIndex = 0;
             this.lbB4.Text = "B4帧出现次数";
             // 
-            // tbxB5Success
-            // 
-            this.tbxB5Success.Location = new System.Drawing.Point(99, 97);
-            this.tbxB5Success.Name = "tbxB5Success";
-            this.tbxB5Success.ReadOnly = true;
-            this.tbxB5Success.Size = new System.Drawing.Size(115, 21);
-            this.tbxB5Success.TabIndex = 49;
-            this.tbxB5Success.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(16, 100);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(77, 12);
-            this.label15.TabIndex = 48;
-            this.label15.Text = "B5帧成功次数";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1092, 604);
+            this.ClientSize = new System.Drawing.Size(913, 579);
             this.Controls.Add(this.gpBoxTongji);
-            this.Controls.Add(this.lbB5Success);
-            this.Controls.Add(this.tbxB5Display);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnGetVst);
             this.Controls.Add(this.gpBox_Para1);
@@ -686,9 +664,6 @@
         private System.Windows.Forms.Button btnUpdataFile;
         private System.Windows.Forms.Button btnChooseBin;
         private System.Windows.Forms.RichTextBox tbxDisplayFilename;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox tbxB5Display;
-        private System.Windows.Forms.Label lbB5Success;
         private System.Windows.Forms.GroupBox gpBoxTongji;
         private System.Windows.Forms.TextBox tbxB4Num;
         private System.Windows.Forms.Label lbB4;
@@ -696,6 +671,7 @@
         private System.Windows.Forms.Label lbB5;
         private System.Windows.Forms.TextBox tbxB5Success;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button tbxSaveB4B5;
     }
 }
 

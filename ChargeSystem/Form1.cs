@@ -47,13 +47,6 @@ namespace ChargeSystem
         OPEN = 0x01
     };
 
-    public enum B5Frame
-    {
-        NOT = 0,
-        HAS,
-        Correct
-    }
-
     public partial class Form1 : Form
     {
         public static int[] nwf580_sense = { -80, -79, -78, -77, -76, -75, -74, -73, -72, -71, -70, -68, -67, -65, -62, -61, -58, -55, -53, -52, -51, -48, -45, -43 };
@@ -79,7 +72,7 @@ namespace ChargeSystem
         public bool isSendEnding = true;
 
         // 统计obuid出现正确与否的字典
-        private Dictionary<string, B5Frame> obuIdDict;
+        private Dictionary<string, B4B5Statistics> obuIdDict;
         private int b5FrameAttendNum;
         private int b5FrameSuccess;
 
@@ -92,7 +85,7 @@ namespace ChargeSystem
         private void Form1_Load(object sender, EventArgs e)
         {
 #if InsideVersion
-            this.Text = "ETCANT_P V1.0.6";
+            this.Text = "ETCANT_P V1.0.8";
             // this.gpBox_RF.Visible = true;
             this.btnGetVst.Visible = true;
 #else
@@ -153,9 +146,13 @@ namespace ChargeSystem
 
             manualResetSendBin = new ManualResetEventSlim(false);
 
-            this.obuIdDict = new Dictionary<string, B5Frame>();
+            // 统计B4B5帧的初始化
+            this.obuIdDict = new Dictionary<string, B4B5Statistics>();
             this.b5FrameAttendNum = 0;
             this.b5FrameSuccess = 0;
+            this.tbxB4Num.Text = "0";
+            this.tbxB5Num.Text = "0";
+            this.tbxB5Success.Text = "0";
 
         }
 
@@ -378,13 +375,13 @@ namespace ChargeSystem
             this.tbxOBU_CarNum.Text = str;
         }
 
-        private void addObuIdToDict(string obuid, RECV_CTRL_CODE mode, bool success)
+        private void addObuIdToDict(string obuid, RECV_CTRL_CODE mode, bool success, string carNum)
         {
             if (mode == RECV_CTRL_CODE.CAR_INFO)
             {
                 if (!obuIdDict.ContainsKey(obuid))
                 {
-                    obuIdDict.Add(obuid, B5Frame.NOT);
+                    obuIdDict.Add(obuid, new B4B5Statistics(B5Frame.NOT_HAS, carNum));
                 }
             }
             else
@@ -393,12 +390,14 @@ namespace ChargeSystem
                 {
                     if (success)
                     {
-                        obuIdDict[obuid] = B5Frame.Correct;
+                        obuIdDict[obuid].b5Frame = B5Frame.CORRECT;
+                        obuIdDict[obuid].carNum = carNum;
                         ++b5FrameSuccess;
                     }
                     else
                     {
-                        obuIdDict[obuid] = B5Frame.HAS;
+                        obuIdDict[obuid].b5Frame = B5Frame.INCORRECT;
+                        obuIdDict[obuid].carNum = carNum;
                     }
                     ++b5FrameAttendNum;
                 }
@@ -507,13 +506,11 @@ namespace ChargeSystem
                             obu_id[3] = recvData[8];
                             str1 = BitConverter.ToString(obu_id).Replace("-", " ");
                             bool success = recvData[10] == 0;
-                            addObuIdToDict(str1, RECV_CTRL_CODE.TRANSCATION_INFO, success);
+                            addObuIdToDict(str1, RECV_CTRL_CODE.TRANSCATION_INFO, success, "");
                             this.tbxB4Num.Text = this.obuIdDict.Count.ToString();
                             this.tbxB5Num.Text = this.b5FrameAttendNum.ToString();
                             this.tbxB5Success.Text = this.b5FrameSuccess.ToString();
                            // --------------------
-
-                            displayB5(ref recvData);
 
                             byte[] replyData = new byte[5];
                             replyData[0] = (byte)CTRL_CODE.TRANSCATION_COMPLETED;
@@ -548,12 +545,6 @@ namespace ChargeSystem
                             strbuilder.Append("\r\n OBU ID:" + str1 + "\r\n");                           
                             this.BeginInvoke(new delegateTbxOBUID(setTbxOBUID), str1);
 
-                            // 统计b4----------------
-                            addObuIdToDict(str1, RECV_CTRL_CODE.CAR_INFO, false);
-                            this.tbxB4Num.Text = this.obuIdDict.Count.ToString();
-                            this.tbxB5Num.Text = this.b5FrameAttendNum.ToString();
-                            this.tbxB5Success.Text = this.b5FrameSuccess.ToString();
-                            // --------------------
 
                             /*
                              * 提取卡车牌
@@ -594,6 +585,7 @@ namespace ChargeSystem
                                 carIdNum += ((char)recvData[startPos + 1 + i]).ToString();
                             }
 
+
                             //显示车牌
                             byte[] carNum = new byte[12];
                             for (byte i = 0; i < 12; i++)
@@ -602,6 +594,14 @@ namespace ChargeSystem
                             }
                             strbuilder.Clear();
                             strbuilder.Append(carIdName + carIdNum);
+
+                            // 统计b4----------------
+                            addObuIdToDict(str1, RECV_CTRL_CODE.CAR_INFO, false, strbuilder.ToString());
+                            this.tbxB4Num.Text = this.obuIdDict.Count.ToString();
+                            this.tbxB5Num.Text = this.b5FrameAttendNum.ToString();
+                            this.tbxB5Success.Text = this.b5FrameSuccess.ToString();
+                            // --------------------
+
                             this.BeginInvoke(new delegateTbxOBUCarNum(setTbxOBUCarNum), strbuilder.ToString());
                             str1 = BitConverter.ToString(carNum).Replace("-", " ");
                             strbuilder.Clear();
@@ -694,6 +694,8 @@ namespace ChargeSystem
                             TCP_Frame tcpFrame2 = new TCP_Frame();
                             tcpFrame2.sealDataToFrame(ref data);
                             tcpFrame2.sendTcpFrame(ref localSocket, ref this.tbxLog);
+
+
                         }
                         break;
 #if InsideVersion
@@ -764,257 +766,6 @@ namespace ChargeSystem
             }
         }
 
-//        private void invokeMethodPrint(ref byte[] recvData)
-//        {
-//            /*
-//             * 打印收到的数据
-//             */
-//            byte[] temp = new byte[1];
-//            temp[0] = recvData[TCP_Frame.CTRL_CODE_INDEX];
-//            string str1 = BitConverter.ToString(temp);
-//            string str2 = BitConverter.ToString(recvData).Replace("-", " ");
-//            tbxLog.Text += "\r\n" + DateTime.Now.TimeOfDay.ToString() + ":<<" + str1 + "帧," + str2 + "\r\n";
-//            bool isCmdExist = false;
-//            foreach (RECV_CTRL_CODE type in Enum.GetValues(typeof(RECV_CTRL_CODE)))
-//            {
-//                if ((byte)type == temp[0])
-//                {
-//                    isCmdExist = true;
-//                    break;
-//                }
-//            }
-//            if (!isCmdExist)
-//            {
-//                this.tbxLog.Text += "\r\n收到未定义命令:" + temp[0].ToString("x2") + "\r\n";
-//                return;
-//            }
-//            /*
-//             * 进一步处理，提取信息等
-//             */
-//            switch (recvData[4])
-//            {
-//                case (byte)RECV_CTRL_CODE.TRANSCATION_INFO:
-//                    {
-//                        byte[] replyData = new byte[5];
-//                        replyData[0] = (byte)CTRL_CODE.TRANSCATION_COMPLETED;
-
-//                        chargeParaInit();
-//                        replyData[1] = (byte)((chargePara.OBU_ID & 0xff000000) >> 24);
-//                        replyData[2] = (byte)((chargePara.OBU_ID & 0x00ff0000) >> 16);
-//                        replyData[3] = (byte)((chargePara.OBU_ID & 0x0000ff00) >> 8);
-//                        replyData[4] = (byte)((chargePara.OBU_ID & 0x000000ff));
-
-//                        TCP_Frame tcpFrame = new TCP_Frame();
-//                        tcpFrame.sealDataToFrame(ref replyData);
-//                        tcpFrame.sendTcpFrame(ref localSocket, ref this.tbxLog);
-//                    }
-//                    break;
-//                case (byte)RECV_CTRL_CODE.CAR_INFO:
-//                    {
-//                        /*
-//                        * 提取OBU_ID
-//                        */
-//                        byte[] obu_id = new byte[4];
-//                        obu_id[0] = recvData[5];
-//                        obu_id[1] = recvData[6];
-//                        obu_id[2] = recvData[7];
-//                        obu_id[3] = recvData[8];
-//                        str1 = BitConverter.ToString(obu_id).Replace("-", " ");
-//                        tbxLog.Text += "\r\n OBU ID:" + str1 + "\r\n";
-//                        this.tbxOBU_ID.Text = str1;
-//                        /*
-//                         * 提取卡车牌
-//                         */
-//                        str1 = "";
-//                        byte[] cardCarIdNameArr = new byte[2];
-//                        string cardCarIdName = "";
-//                        cardCarIdNameArr[0] = recvData[145];
-//                        cardCarIdNameArr[1] = recvData[146];
-//                        cardCarIdName = Encoding.GetEncoding("gb2312").GetString(cardCarIdNameArr);
-//                        for (byte i = 0; i < 12; i++)
-//                        {
-//                            //card_VehicleNum[i] = recvData[145 + i]; //卡车牌第一字节位置： 142+4-1 = 145
-//                            str1 += ((char)recvData[147 + i]).ToString();
-//                        }
-//                        //str1 = BitConverter.ToString(card_VehicleNum).Replace("-", " ");              
-//                        tbxLog.Text += "\r\n 卡车牌：" + cardCarIdName + str1 + "\r\n";
-//                        this.tbxCardVehicleNum.Text = cardCarIdName + str1;
-//                        /*
-//                         *提取车辆信息
-//                         */
-
-//                        //obu车牌号码
-//                        byte startPos = 38;
-//                        byte[] carIdNameArr = new byte[2];
-//                        string carIdName = "";
-//                        carIdNameArr[0] = recvData[startPos];
-//                        carIdNameArr[1] = recvData[startPos + 1];
-//                        carIdName = Encoding.GetEncoding("gb2312").GetString(carIdNameArr); //车牌省份 共两个字节表示一个汉字
-
-//                        string carIdNum = "";       //车牌后的数字和字母，ASCII表示
-//                        for (byte i = 1; i <= 10; i++)
-//                        {
-//                            carIdNum += ((char)recvData[startPos + 1 + i]).ToString();
-//                        }
-
-//                        //显示车牌
-//                        byte[] carNum = new byte[12];
-//                        for (byte i = 0; i < 12; i++)
-//                        {
-//                            carNum[i] = recvData[startPos + i];
-//                        }
-//                        this.tbxOBU_CarNum.Text = carIdName + carIdNum;
-//                        str1 = BitConverter.ToString(carNum).Replace("-", " ");
-//                        this.tbxLog.Text += "OBU车牌：" + str1 + "\r\n";
-
-//                        chargeParaInit();
-//                        byte[] data = new byte[59];
-//                        data[0] = (byte)CTRL_CODE.TRANSCATION_LAUNCHED;
-
-//                        data[1] = (byte)((chargePara.OBU_ID & 0xff000000) >> 24);
-//                        data[2] = (byte)((chargePara.OBU_ID & 0x00ff0000) >> 16);
-//                        data[3] = (byte)((chargePara.OBU_ID & 0x0000ff00) >> 8);
-//                        data[4] = (byte)((chargePara.OBU_ID & 0x000000ff));
-
-//                        data[5] = (byte)((chargePara.bill & 0xff000000) >> 24);
-//                        data[6] = (byte)((chargePara.bill & 0x00ff0000) >> 16);
-//                        data[7] = (byte)((chargePara.bill & 0x0000ff00) >> 8);
-//                        data[8] = (byte)((chargePara.bill & 0x000000ff));
-
-//                        BCD_Code bcd = new BCD_Code();
-
-//                        uint year = (uint)int.Parse(DateTime.Now.ToString("yyyy"));
-//                        //uint year = 2319;
-
-//                        byte yOct_th = (byte)Math.Floor((double)(year / 1000)); //千位
-//                        uint yBcd_th = bcd.octToBcd(yOct_th);
-
-//                        uint th_int = (uint)yOct_th * 1000;
-//                        byte yOct_hdr = (byte)Math.Floor((double)((year - th_int) / 100));  //百位
-//                        uint yBcd_hdr = bcd.octToBcd(yOct_hdr);
-
-//                        uint hunder_int = (uint)yOct_hdr * 100;
-//                        byte yOct_ten = (byte)Math.Floor((double)((year - th_int - hunder_int) / 10));  //十位
-//                        uint yBcd_ten = bcd.octToBcd(yOct_ten);
-
-//                        uint one_int = (uint)yOct_ten * 10;
-//                        byte yOct_one = (byte)Math.Floor((double)(year - th_int - hunder_int - one_int));  //个位
-//                        uint yBcd_one = bcd.octToBcd(yOct_one);
-
-//                        uint yearH = (yBcd_th << 4) | yBcd_hdr;
-//                        uint yearL = (yBcd_ten << 4) | yBcd_one;
-
-
-//                        byte month = (byte)int.Parse(DateTime.Now.ToString("MM"));  //月份
-//                        byte mOct_ten = (byte)Math.Floor((double)(month / 10));
-//                        uint mBcd_ten = bcd.octToBcd(mOct_ten);
-//                        byte mOct_one = (byte)(month - mOct_ten * 10);
-//                        uint mBcd_one = bcd.octToBcd(mOct_one);
-//                        uint bcd_month = (mBcd_ten << 4) | mBcd_one;
-
-
-
-//                        byte day = (byte)int.Parse(DateTime.Now.ToString("dd"));
-//                        byte dOct_ten = (byte)Math.Floor((double)(day / 10));
-//                        uint dBcd_ten = bcd.octToBcd(dOct_ten);
-//                        byte dOct_one = (byte)(day - dOct_ten * 10);
-//                        uint dBcd_one = bcd.octToBcd(dOct_one);
-//                        uint bcd_day = (dBcd_ten << 4) | dBcd_one;
-
-//                        byte hour = (byte)int.Parse(DateTime.Now.ToString("HH"));
-//                        byte hOct_ten = (byte)Math.Floor((double)(hour / 10));
-//                        uint hBcd_ten = bcd.octToBcd(hOct_ten);
-//                        byte hOct_one = (byte)(hour - hOct_ten * 10);
-//                        uint hBcd_one = bcd.octToBcd(hOct_one);
-//                        uint bcd_hour = (hBcd_ten << 4) | hBcd_one;
-
-//                        byte minute = (byte)int.Parse(DateTime.Now.ToString("mm")); //分钟
-//                        byte minOct_ten = (byte)Math.Floor((double)(minute / 10));
-//                        uint minBcd_ten = bcd.octToBcd(minOct_ten);
-//                        byte minOct_one = (byte)(minute - minOct_ten * 10);
-//                        uint minBcd_one = bcd.octToBcd(minOct_one);
-//                        uint bcd_minute = (minBcd_ten << 4) | minBcd_one;
-
-//                        byte sec = (byte)int.Parse(DateTime.Now.ToString("ss"));
-//                        byte sOct_ten = (byte)Math.Floor((double)(sec / 10));
-//                        uint sBcd_ten = bcd.octToBcd(sOct_ten);
-//                        byte sOct_one = (byte)(sec - sOct_ten * 10);
-//                        uint sBcd_one = bcd.octToBcd(sOct_one);
-//                        uint bcd_sec = (sBcd_ten << 4) | sBcd_one;
-
-//                        data[9] = (byte)yearH;
-//                        data[10] = (byte)yearL;
-//                        data[11] = (byte)bcd_month;
-//                        data[12] = (byte)bcd_day;
-//                        data[13] = (byte)bcd_hour;
-//                        data[14] = (byte)bcd_minute;
-//                        data[15] = (byte)bcd_sec;
-
-//                        TCP_Frame tcpFrame2 = new TCP_Frame();
-//                        tcpFrame2.sealDataToFrame(ref data);
-//                        tcpFrame2.sendTcpFrame(ref localSocket, ref this.tbxLog);
-//                    }
-//                    break;
-//#if InsideVersion
-//                case (byte)RECV_CTRL_CODE.GET_VST_ACK:
-//                    {
-//                        /*
-//                        * 提取OBU_ID
-//                        */
-//                        byte[] obu_id = new byte[4];
-//                        obu_id[0] = recvData[5];
-//                        obu_id[1] = recvData[6];
-//                        obu_id[2] = recvData[7];
-//                        obu_id[3] = recvData[8];
-//                        str1 = BitConverter.ToString(obu_id).Replace("-", " ");
-//                        tbxLog.Text += "\r\n OBU ID:" + str1 + "\r\n";
-//                        this.tbxOBU_ID.Text = str1;
-
-//                        if (recvData.Length > 97) // 79 + 12 12位车牌号  4位是数据头 2位是crc
-//                        {
-//                            /*
-//                         * 提取OBU车牌号
-//                         */
-//                            //obu车牌号码
-//                            byte startPos = 85;
-//                            byte[] carIdNameArr = new byte[2];
-//                            string carIdName = "";
-//                            carIdNameArr[0] = recvData[startPos];
-//                            carIdNameArr[1] = recvData[startPos + 1];
-//                            carIdName = Encoding.GetEncoding("gb2312").GetString(carIdNameArr); //车牌省份 共两个字节表示一个汉字
-
-//                            string carIdNum = "";       //车牌后的数字和字母，ASCII表示
-//                            for (byte i = 1; i <= 10; i++)
-//                            {
-//                                carIdNum += ((char)recvData[startPos + 1 + i]).ToString();
-//                            }
-
-//                            //显示车牌
-//                            byte[] carNum = new byte[12];
-//                            for (byte i = 0; i < 12; i++)
-//                            {
-//                                carNum[i] = recvData[startPos + i];
-//                            }
-//                            this.tbxOBU_CarNum.Text = carIdName + carIdNum;
-//                            str1 = BitConverter.ToString(carNum).Replace("-", " ");
-//                            this.tbxLog.Text += "OBU车牌：" + str1 + "\r\n";
-//                        }
-
-//                    }
-//                    break;
-//                case (byte)RECV_CTRL_CODE.DOWNLOAD_BINFILE_ACK:
-//                    byte isRecieved = recvData[5];
-//                    if (isRecieved == 0)
-//                    {
-//                        this.isBinFileReceived = true;
-//                    }
-//                    break;
-//#endif
-//                default:
-//                    break;
-
-//            }
-//        }
         private void btnInit_Click(object sender, EventArgs e)
         {
             if (this.tbxChargePeriod.Text == "")
@@ -1087,9 +838,6 @@ namespace ChargeSystem
             }
             this.RSUSwitch = !this.RSUSwitch;
 
-            // 清除B5帧的显示
-            this.tbxB5Display.Text = "";
-            this.lbB5Success.Text = "";
 
             TCP_Frame tcpFrame = new TCP_Frame();
             tcpFrame.sealDataToFrame(ref data);
@@ -1540,38 +1288,35 @@ namespace ChargeSystem
             }
         }
 
-        private void displayB5(ref byte[] recvData)
+        private void tbxSaveB4B5_Click(object sender, EventArgs e)
         {
-            byte[] temp = new byte[7];
-
-            for (int i = 4, j = 0; i < 11; ++i, ++j)
+            if (obuIdDict.Count > 0)
             {
-                temp[j] = recvData[i];
-            }
-
-            string str = BitConverter.ToString(temp).Replace("-", " ");
-            this.BeginInvoke((EventHandler)(delegate       
-            {
-                this.tbxB5Display.Text = str;
-            }));
-            
-            if (recvData[10] == 0)
-            {
-                this.BeginInvoke((EventHandler)(delegate
+                SaveFileDialog fileLog = new SaveFileDialog();
+                fileLog.Filter = "文本文件|*.txt";
+                string strDate = DateTime.Now.ToString("D");
+                string strHour = DateTime.Now.ToString("HH");
+                string strMin = DateTime.Now.ToString("mm");
+                string strSec = DateTime.Now.ToString("ss");
+                fileLog.FileName = "log_" + strDate + strHour + strMin + strSec;
+                if (fileLog.ShowDialog() == DialogResult.OK)
                 {
-                    this.lbB5Success.Text = "成功";
-                    this.lbB5Success.ForeColor = Color.Green;
-                }));
+                    StreamWriter mySw = File.CreateText(fileLog.FileName);
+
+                    foreach (KeyValuePair<string, B4B5Statistics> item in obuIdDict)
+                    {
+                        mySw.WriteLine("1、obuId:" + item.Key + "      " + "2、obu车牌:" + item.Value.carNum + "    "
+                            + "3、B5帧是否具有:" + Enum.GetName(typeof(B5Frame), item.Value.b5Frame) + "      " + "4、obuId是否相同:" + Enum.GetName(typeof(B5Frame), item.Value.b5Frame));
+                    }
+                    mySw.Flush();
+                    mySw.Close();
+                    MessageBox.Show("已保存统计数据", "提示");
+                }
             }
             else
             {
-                this.BeginInvoke((EventHandler)(delegate
-                {
-                    this.lbB5Success.Text = "失败";
-                    this.lbB5Success.ForeColor = Color.Red;
-                }));
+                MessageBox.Show("无数据", "提示");
             }
-
         }
     }
 }
