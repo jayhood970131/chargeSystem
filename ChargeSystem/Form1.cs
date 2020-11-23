@@ -85,7 +85,7 @@ namespace ChargeSystem
         private void Form1_Load(object sender, EventArgs e)
         {
 #if InsideVersion
-            this.Text = "ETCANT_P V1.0.8";
+            this.Text = "ETCANT_P V1.0.9";
             // this.gpBox_RF.Visible = true;
             this.btnGetVst.Visible = true;
 #else
@@ -390,12 +390,20 @@ namespace ChargeSystem
                 {
                     if (success)
                     {
+                        if (obuIdDict[obuid].b5Frame == B5Frame.CORRECT)
+                        {
+                            return;
+                        }
                         obuIdDict[obuid].b5Frame = B5Frame.CORRECT;
                         obuIdDict[obuid].carNum = carNum;
                         ++b5FrameSuccess;
                     }
                     else
                     {
+                        if (obuIdDict[obuid].b5Frame == B5Frame.INCORRECT)
+                        {
+                            return;
+                        }
                         obuIdDict[obuid].b5Frame = B5Frame.INCORRECT;
                         obuIdDict[obuid].carNum = carNum;
                     }
