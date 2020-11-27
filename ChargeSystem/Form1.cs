@@ -85,7 +85,7 @@ namespace ChargeSystem
         private void Form1_Load(object sender, EventArgs e)
         {
 #if InsideVersion
-            this.Text = "ETCANT_P V1.0.10";
+            this.Text = "ETCANT_P V1.0.11";
             // this.gpBox_RF.Visible = true;
             this.btnGetVst.Visible = true;
 #else
@@ -377,6 +377,10 @@ namespace ChargeSystem
 
         private void addObuIdToDict(string obuid, RECV_CTRL_CODE mode, bool success, string carNum)
         {
+            if (obuid.Trim() == "00 00 00 00")
+            {
+                return;
+            }
             if (mode == RECV_CTRL_CODE.CAR_INFO)
             {
                 if (!obuIdDict.ContainsKey(obuid))
