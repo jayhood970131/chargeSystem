@@ -85,7 +85,7 @@ namespace ChargeSystem
         private void Form1_Load(object sender, EventArgs e)
         {
 #if InsideVersion
-            this.Text = "ETCANT_P V1.0.9";
+            this.Text = "ETCANT_P V1.0.10";
             // this.gpBox_RF.Visible = true;
             this.btnGetVst.Visible = true;
 #else
@@ -550,7 +550,8 @@ namespace ChargeSystem
                             obu_id[3] = recvData[8];
                             str1 = BitConverter.ToString(obu_id).Replace("-", " ");
                             strbuilder.Clear();
-                            strbuilder.Append("\r\n OBU ID:" + str1 + "\r\n");                           
+                            strbuilder.Append("\r\n OBU ID:" + str1 + "\r\n");
+                            string tempObuId = str1;
                             this.BeginInvoke(new delegateTbxOBUID(setTbxOBUID), str1);
 
 
@@ -604,7 +605,7 @@ namespace ChargeSystem
                             strbuilder.Append(carIdName + carIdNum);
 
                             // 统计b4----------------
-                            addObuIdToDict(str1, RECV_CTRL_CODE.CAR_INFO, false, strbuilder.ToString());
+                            addObuIdToDict(tempObuId, RECV_CTRL_CODE.CAR_INFO, false, strbuilder.ToString());
                             this.tbxB4Num.Text = this.obuIdDict.Count.ToString();
                             this.tbxB5Num.Text = this.b5FrameAttendNum.ToString();
                             this.tbxB5Success.Text = this.b5FrameSuccess.ToString();
